@@ -1,3 +1,2 @@
-fun main(){
-    print("hey")
+fun main() {
 }
