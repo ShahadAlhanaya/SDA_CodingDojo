@@ -1,0 +1,80 @@
+//=============================================================================================================//
+// Find one function (with no parameters) you have used in the past and rewrite it using a lambda expression
+
+#original 
+fun helloUser(){
+  println("Hello user, welcome to my program!")
+}
+helloUser() 
+
+
+#lambda
+val helloUser = { println("Hello user, welcome to my program!") }
+helloUser()
+
+//=============================================================================================================//
+// Find two functions that take in one or more parameters and rewrite them using a lambda expression
+
+#original 
+fun helloName(name: String){
+  println("Hello $name, welcome to my program!")
+}
+helloName("Shahad") 
+
+
+#lambda
+val helloName = { name: String -> println("Hello $name, welcome to my program!") }
+helloName("Shahad")
+
+//=============================================================================================================//
+// Find two functions that return a value and rewrite them using a lambda expression
+
+#original(1)
+fun findAge(birthYear: Int): Int{
+  return 2021-birthYear
+}
+findAge(1998)
+
+#lambda(1)
+val findAge = { birthYear: Int -> 2021-birthYear }
+findAge(1998)
+
+
+#original(2)
+fun validateAge(age: Int): Boolean{
+  return age >= 18
+}
+validateAge(findAge(1998))
+
+#lambda(2)
+val validateAge = { age: Int -> age >= 18 }
+validateAge(findAge(1998))
+
+//=============================================================================================================//
+// Make use of a data class to create a Player class with attributes name, age, height (in cm)
+
+data class Player(val age: Int, val name: String, val height: Double)
+
+//=============================================================================================================//
+// Create a list of 10* :P players
+
+val players = listOf(
+    Player("Shahad", 23,155.0),
+    Player("Adam", 23, 181.0),
+    Player("Noura", 24, 165.0),
+    Player("Salem", 27, 170.0),
+    Player("Vlad", 24, 180.0),
+    Player("Maha", 31,160.0),
+    Player("Deema", 21, 165.0),
+    Player("Farah", 33, 170.0),
+    Player("Naif", 25, 175.0),
+    Player("Khalid", 28, 180.0),
+)
+
+//=============================================================================================================//
+// Use a lambda expression to sort and print the list by each attribute 
+
+val validPlayers = players.sortedByDescending { it.age }
+validPlayers.forEach{
+   Log.d("Players Ages:", it.age.toString())
+}
